@@ -12,7 +12,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     ViewPager2 vpHorizontal;
-    int[] images = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3};
+    int[] images = {R.drawable.one, R.drawable.two, R.drawable.three};
+    String[] texts = {"Voice", "Internet", "SMS"};
 
     MainAdapter adapter;
 
@@ -21,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vpHorizontal = findViewById(R.id.vpHorizontal);
+        vpHorizontal = findViewById(R.id.view_pager_2);
 
-        adapter = new MainAdapter(images);
+        adapter = new MainAdapter(images, texts);
 
         vpHorizontal.setAdapter(adapter);
         vpHorizontal.setClipToPadding(false);

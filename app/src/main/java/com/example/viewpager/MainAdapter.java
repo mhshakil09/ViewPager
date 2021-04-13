@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     int[] images;
+    String[] texts;
 
-    public MainAdapter(int[] images) {
+    public MainAdapter(int[] images, String[] texts) {
         this.images = images;
+        this.texts = texts;
     }
 
     @NonNull
@@ -26,8 +28,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageView.setBackgroundResource(images[position]);
-        holder.textView.setText(String.valueOf(position+1));
+        holder.imageView.setImageResource(images[position]);
+        holder.textView.setText(texts[position]);
     }
 
     @Override
@@ -35,16 +37,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         return images.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView textView
-                ;
+        TextView textView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
+            imageView = itemView.findViewById(R.id.image_view);
+            textView = itemView.findViewById(R.id.text_view);
         }
+
     }
 }
